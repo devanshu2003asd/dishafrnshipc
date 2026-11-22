@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Disha 💗</title>
+
+<style>
+* {box-sizing:border-box;margin:0;padding:0}
+
+body {
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ background:linear-gradient(135deg,#ffe1ed,#f4dfff,#fff0f5);
+ font-family:'Trebuchet MS',sans-serif;
+ overflow:hidden;
+ color:#914c70;
+}
+
+.card {
+ width:90%;
+ max-width:420px;
+ padding:32px 23px;
+ background:#ffffffdf;
+ border:2px solid white;
+ border-radius:30px;
+ text-align:center;
+ box-shadow:0 12px 40px #d68aaa55;
+ z-index:2;
+ animation:appear 1s ease;
+}
+
+@keyframes appear {
+ from {opacity:0;transform:translateY(30px)}
+ to {opacity:1;transform:translateY(0)}
+}
+
+.teddy {font-size:75px;margin-bottom:12px}
+
+h1 {color:#e66d9c;margin-bottom:12px}
+
+p {line-height:1.8;font-size:15px;margin:15px 0}
+
+button {
+ border:0;
+ border-radius:30px;
+ padding:13px 23px;
+ margin:8px 3px;
+ background:#ed8db4;
+ color:white;
+ font-size:15px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+button:hover {transform:scale(1.08)}
+
+.no {background:#f8e3ed;color:#a75d80}
+
+.hidden {display:none}
+
+.heart {
+ position:absolute;
+ bottom:-30px;
+ animation:float 7s linear forwards;
+ pointer-events:none;
+}
+
+@keyframes float {
+ to {transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+.footer {font-size:12px;color:#c18aa4;margin-top:20px}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="first">
+ <div class="teddy">🧸🌷</div>
+ <h1>Hey Disha! 💗</h1>
+ <p>I have a little something for you...</p>
+ <p>It's not a proposal, not a confession...
+ just a tiny surprise made to bring a smile to your face. 🥹</p>
+ <button onclick="next()">Open my surprise 💌</button>
+ <div class="footer">A little surprise, just for you ✨</div>
+</div>
+
+<div class="card hidden" id="second">
+ <div class="teddy">🥺💗</div>
+ <h1>Dear Disha...</h1>
+ <p>
+ I don't want to rush anything or put any expectations on you.
+ <br><br>
+ I just want a little space in your life where we can share random talks,
+ silly jokes, secrets, laughter and countless memories.
+ <br><br>
+ Maybe we don't know what tomorrow holds, but for now, I'd genuinely
+ love to be someone you can call a good friend...
+ or maybe your best friend someday. 🌸
+ </p>
+ <h3>So, Disha... 🧸</h3>
+ <p>Can I be your favourite human? 👉👈</p>
+ <button onclick="yes()">Of course! 💗</button>
+ <button class="no" onclick="maybe()">Let's see hehe 🙈</button>
+</div>
+
+<div class="card hidden" id="third">
+ <div class="teddy">🥹💕</div>
+ <h1>Yayyy Disha!</h1>
+ <p>
+ Here's to random conversations, endless laughter,
+ silly moments and beautiful friendship! 🌷
+ <br><br>
+ No pressure, no expectations.
+ Just genuine friendship. ❤️
+ <br><br>
+ I'm glad to have you in my little world! 🧸
+ </p>
+ <div class="teddy">🤗💗</div>
+</div>
+
+<div class="card hidden" id="fourth">
+ <div class="teddy">🧸🌸</div>
+ <h1>Hehe, no worries!</h1>
+ <p>
+ Take your time, Disha.
+ I just wanted to make you smile.
+ <br><br>
+ Let's let our friendship grow naturally. 💗
+ </p>
+ <button onclick="back()">Go back 💕</button>
+</div>
+
+<script>
+function hideAll() {
+ ["first","second","third","fourth"].forEach(id =>
+ document.getElementById(id).classList.add("hidden")
+ );
+}
+
+function next() {
+ hideAll();
+ document.getElementById("second").classList.remove("hidden");
+}
+
+function yes() {
+ hideAll();
+ document.getElementById("third").classList.remove("hidden");
+}
+
+function maybe() {
+ hideAll();
+ document.getElementById("fourth").classList.remove("hidden");
+}
+
+function back() {
+ hideAll();
+ document.getElementById("second").classList.remove("hidden");
+}
+
+const emojis=["💗","💕","🌸","✨","🧸"];
+
+setInterval(()=>{
+ const h=document.createElement("div");
+ h.className="heart";
+ h.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+ h.style.left=Math.random()*100+"vw";
+ h.style.fontSize=(18+Math.random()*15)+"px";
+ h.style.animationDuration=(4+Math.random()*5)+"s";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),9000);
+},450);
+</script>
+
+</body>
+</html>
